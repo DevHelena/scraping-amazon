@@ -1,9 +1,8 @@
 import * as cheerio from 'cheerio'
 
-
 function extractProductData(responseAmazon) {
   try {
-    // Initialize cheerio and load the HTML
+    // Load the HTML
     const $ = cheerio.load(responseAmazon)
 
     // Defines classes and tags as search parameters in HTML

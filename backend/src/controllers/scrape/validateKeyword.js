@@ -1,4 +1,3 @@
-
 function validateKeyword(req, res) {
   try {
     // Get de keyword
@@ -33,6 +32,6 @@ function validateKeyword(req, res) {
       error: error.message 
     })
   }
-  }
+}
 
 export default validateKeyword
