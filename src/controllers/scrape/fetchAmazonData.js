@@ -14,7 +14,12 @@ async function fetchAmazonData(urlAmazon) {
   
     return responseAmazon.data
   } catch (error) {
-    throw new Error("Error fetching data from Amazon")
+    console.error(error)
+    
+    res.status(400).json({ 
+      message: "Error fetching data from Amazon",
+      error: error.message 
+    })
   }
 }
 
