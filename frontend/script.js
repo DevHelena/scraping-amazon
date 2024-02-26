@@ -63,6 +63,7 @@ function createProductHTML(productList) {
 // Retrieves HTML elements from the page
 const keywordInput = document.getElementById('keywordInput')
 const scrapeButton = document.getElementById('scrapeButton')
+const alertElement = document.querySelector('.alert')
 
 // Handles the search event
 const handleSearch = async (event) => {
@@ -70,6 +71,14 @@ const handleSearch = async (event) => {
 
   // Gets the keyword entered by the user
   const keyword = keywordInput.value
+  
+  // Check for special characters
+  const allowedChars = new RegExp(/^[^;\&\#+\|\"\']+$/);
+  if (!allowedChars.test(keyword)) {
+    alertElement.style.display = 'block'
+  } else {
+    alertElement.style.display = 'none'
+  }
 
   try {
     // Fetches data from the API
