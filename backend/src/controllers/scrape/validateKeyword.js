@@ -26,7 +26,7 @@ function validateKeyword(req, res) {
     return keyword
   } catch {
     console.error(error)
-    
+
     res.status(400).json({ 
       message: "Error validating keyword",
       error: error.message 

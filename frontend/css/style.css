@@ -37,7 +37,6 @@ header {
 .container {
     width: 50vw;
     height: 75vh;
-    border: var(--font-color) solid 1px;
     border-radius: 10px;
     padding: 2vw;
     display: flex;
@@ -79,7 +78,7 @@ button:hover {
     padding-right: 1rem;
 }
 .products::-webkit-scrollbar {
-    width: 10px; 
+    width: 8px; 
 }
 
 .products::-webkit-scrollbar-thumb {
