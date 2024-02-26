@@ -27,6 +27,6 @@ This command will open the project's frontend in your browser, but **before usin
 Done! Now the project is running!
 
 ## Step 3: Use
-To use it, simply go to the page opened in your browser when you accessed the frontend and enter the keyword for the search. If there are products related to the keyword, some information about them will appear for you: Title, ratings, reviews, image URL.
+To use it, simply go to the page opened in your browser when you accessed the frontend, reload the page, and enter the keyword for the search. If there are products related to the keyword, some information about them will appear for you: Title, ratings, reviews, image URL.
 
 ### Thank you for accessing this project!
