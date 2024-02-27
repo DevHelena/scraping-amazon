@@ -1,4 +1,3 @@
-
 // Creates the scraping API URL, replacing the specified keyword
 const endpoint = (keyword) => `http://localhost:3000/api/scrape?keyword=${keyword}`
 
@@ -30,7 +29,8 @@ function createProductHTML(productList) {
   let productHTML = "<p>Sorry, this product is not available! :(</p>"
 
   // Iterates over the product list and creates HTML for each product
-  if (productList) {
+  if (productList.length !== 0) {
+    productHTML = ""
     for (const product of productList) {
       productHTML += `
         <div class="product">
@@ -56,26 +56,30 @@ function createProductHTML(productList) {
   }
 
   // Displays the product HTML in the "results" div
-  const resultsDiv = document.getElementById("results");
+  const resultsDiv = document.getElementById("results")
   resultsDiv.innerHTML = productHTML
 }
 
 // Retrieves HTML elements from the page
 const keywordInput = document.getElementById('keywordInput')
 const scrapeButton = document.getElementById('scrapeButton')
+const productGroup = document.getElementById('results')
 const alertElement = document.querySelector('.alert')
 
 // Handles the search event
 const handleSearch = async (event) => {
   event.preventDefault()
+  alertElement.style.display = 'none'
+  productGroup.style.display = 'block'
 
   // Gets the keyword entered by the user
   const keyword = keywordInput.value
   
   // Check for special characters
-  const allowedChars = new RegExp(/^[^;\&\#+\|\"\']+$/);
+  const allowedChars = new RegExp(/^[^;\&\#+\|\"\']+$/)
   if (!allowedChars.test(keyword)) {
     alertElement.style.display = 'block'
+    productGroup.style.display = 'none'
   } else {
     alertElement.style.display = 'none'
   }
@@ -83,7 +87,7 @@ const handleSearch = async (event) => {
   try {
     // Fetches data from the API
     const response = await fetchData(keyword)
-    product = response.product
+    product = response.products
 
     // Generates the product HTML
     createProductHTML(product)

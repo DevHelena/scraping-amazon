@@ -120,3 +120,7 @@ button:hover {
 footer {
     margin: 1vw;
 }
+
+.alert {
+    display: none;
+}
